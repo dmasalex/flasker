@@ -1,0 +1,11 @@
+1. Установили 
+pip install flask-sqlalchemy
+2. Импортировали и инициализировали db
+from flask_sqlalchemy import SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://users.db'
+db = SQLAlchemy(app)
+3. Прописали модели, связи и тд
+4. Вошли в python shell, импортировали db
+from hello import db
+5. Создаем БД
+db.create_all() - появится файл БД в проекте
