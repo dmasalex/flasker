@@ -9,3 +9,42 @@ db = SQLAlchemy(app)
 from hello import db
 5. Создаем БД
 db.create_all() - появится файл БД в проекте
+
+
+переключаем БД на другие:
+меняем конфиг
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://alex:123QWE@localhost/flask_db'
+создаем БД, юзера с паролем через консоль
+или создаем через питон скрипт create_db.py
+pip install mysql-connector
+pip install mysql-connector-python
+pip install mysql-connector-python-rf
+pip install mysqlclient
+pip install pymysql
+pip install cryptography
+
+запускаем скрипт create_db.py, проверяем создание базы данных
+заходим в ipython, импортируем db, создаем таблицы по models
+from hello import db
+db.create_all()
+Проверяем работу бд
+
+Миграция
+pip install Flask-Migrate
+В app
+from flask_migrate import Migrate
+после иницифализации db (db=SQLA...)
+migrate = Migrate(app, db)
+после в терминале
+flask db init
+после первая миграция
+flask db migrate -m 'Initial Migration'
+flask db upgrade
+flask db - инфа о bd
+
+
+
+
+
+
+
